@@ -4,11 +4,11 @@ import {Router} from './Router';
 import store from './Reducers';
 
 function App() {
-  return (
-    <Provider store={store}>
-      <Router />
-    </Provider>
-  );
+    return (
+        <Provider store={store}>
+            <Router />
+        </Provider>
+    );
 }
 
 export default App;

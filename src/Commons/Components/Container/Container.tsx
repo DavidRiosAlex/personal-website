@@ -4,6 +4,8 @@ interface ContainerProps {
     children: Element[];
 }
 
-export const Container = React.memo(({children}: ContainerProps) => {
-    return <div className="w-f">{children}</div>
-})
+function ContainerComponent ({children}: ContainerProps) {
+    return <div className="w-f">{children}</div>;
+}
+
+export const Container = React.memo(ContainerComponent);
