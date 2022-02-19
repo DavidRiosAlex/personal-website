@@ -8,5 +8,5 @@ interface Route {
 
 export const reducers = {};
 export const routes: Route[] = [
-    {path: 'home', component: Home}
+    {path: '/home', component: Home}
 ];
