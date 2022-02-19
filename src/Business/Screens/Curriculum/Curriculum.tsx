@@ -5,4 +5,4 @@ export const Curriculum = React.memo(() => {
     return <ScreenCommon>
         <div></div>
     </ScreenCommon>
-})
+});
