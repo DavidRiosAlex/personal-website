@@ -6,9 +6,10 @@ interface AnimatedTypingProps {
     delay: number;
     className?: string;
     startFromChar?: number;
+    writer: (type: any) => void;
 }
 
-function AnimatedTypingComponent ({...props}: AnimatedTypingProps) {
+function AnimatedTypingComponent ({writer, text, ...props}: AnimatedTypingProps) {
     const spanRef = useRef(null);
     useEffect(() => {
         if (spanRef.current) {
@@ -17,17 +18,9 @@ function AnimatedTypingComponent ({...props}: AnimatedTypingProps) {
             });
             typewriter
                 .pauseFor(2500)
-                .typeString('Desarrollador <strong>Backend</strong>')
-                .pauseFor(300)
-                .deleteChars(7)
-                .typeString('<strong>FrontEnd</strong>')
-                .pauseFor(200)
-                .deleteChars(8)
-                .typeString('<strong>Mobile</strong>')
-                .pauseFor(200)
-                .deleteChars(6)
-                .typeString('<strong>FullStack</strong> ...')
-                .start();
+                .typeString(text);      
+            writer(typewriter);
+            typewriter.start();
         }
     }, []);
     return <span ref={spanRef} {...props}>Desarrollador</span>;
